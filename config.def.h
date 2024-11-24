@@ -1,4 +1,25 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
+/* Variables */
+/* Appearance */
+/* Tagging */
+/* Rules */
+/* Layout(s) */
+/* Key Definitions *//* Commands */
+// Volume Commands
+static const char *volume[3][4] = { {
+    "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%"
+  },{
+    "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%"
+  },{
+    "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle"
+  } 
+};// The rest of you commands..../* Keys */
+static Key keys[] = {
+/* modifier key                     function  argument */
+  {0,       XF86XK_AudioRaiseVolume, spawn,   {.v=volume[0]},
+  {0,       XF86XK_AudioLowerVolume, spawn,   {.v=volume[1]},
+  {0,       XF86XK_AudioMute,        spawn,   {.v=volume[2]},
 
 /* Helper macros for spawning commands */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -174,7 +195,7 @@ static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#bbbbbb";
 static char normbgcolor[]                = "#222222";
-static char normbordercolor[]            = "#444444";
+static char normbordercolor[]            = "#FDF6E3";
 static char normfloatcolor[]             = "#db8fd9";
 
 static char selfgcolor[]                 = "#eeeeee";
@@ -184,7 +205,7 @@ static char selfloatcolor[]              = "#005577";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
 static char titlenormbgcolor[]           = "#222222";
-static char titlenormbordercolor[]       = "#444444";
+static char titlenormbordercolor[]       = "#FDF6E3";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
 static char titleselfgcolor[]            = "#eeeeee";
@@ -194,7 +215,7 @@ static char titleselfloatcolor[]         = "#005577";
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
 static char tagsnormbgcolor[]            = "#222222";
-static char tagsnormbordercolor[]        = "#444444";
+static char tagsnormbordercolor[]        = "#FDF6E3";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
 static char tagsselfgcolor[]             = "#eeeeee";
