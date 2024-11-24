@@ -9,5 +9,9 @@ XF86AudioLowerVolume
 XF86AudioMicMute
 	amixer -D pipewire ​set​ Master 1+ toggle  
 
-super + shift +f
+super +f
 	librewolf
+super + e
+	thunar
+super + shift + s
+	xfce4-screenshooter
